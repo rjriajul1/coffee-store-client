@@ -8,7 +8,7 @@ const MainLayout = () => {
         <div>
             <Header/>
                <Banner/>
-            <div className='max-w-7xl mx-auto'>
+            <div>
             <Outlet/>
             </div>
         </div>

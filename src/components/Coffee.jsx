@@ -5,7 +5,7 @@ import { MdDelete, MdEdit } from "react-icons/md";
 const Coffee = ({ coffee }) => {
   const { name, price, chef, photo } = coffee || {};
   return (
-    <div className="card card-side bg-base-300 shadow-sm">
+    <div className="card  card-side bg-base-300 shadow-sm">
       <figure>
         <img className="w-[185px" src={photo} alt="Movie" />
       </figure>
