@@ -1,10 +1,12 @@
 import React from 'react';
-import Banner from '../components/Banner';
+import PopularCoffees from '../components/PopularCoffees';
+import { useLoaderData } from 'react-router';
 
 const Home = () => {
+    const coffees = useLoaderData();
     return (
         <div>
-            <Banner/>
+              <PopularCoffees coffees={coffees}/>
         </div>
     );
 };

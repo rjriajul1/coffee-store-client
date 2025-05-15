@@ -1,0 +1,36 @@
+import React from "react";
+import { IoEyeSharp } from "react-icons/io5";
+import { MdDelete, MdEdit } from "react-icons/md";
+
+const Coffee = ({ coffee }) => {
+  const { name, price, chef, photo } = coffee || {};
+  return (
+    <div className="card card-side bg-base-300 shadow-sm">
+      <figure>
+        <img className="w-[185px" src={photo} alt="Movie" />
+      </figure>
+      <div className="flex justify-around items-center w-full">
+        <div>
+          <h2 className="text-secondary-content">
+            <span className="text-black">Name</span>: {name}
+          </h2>
+          <p className="text-secondary-content">
+            <span className="text-black">Chef</span>: {chef}
+          </p>
+          <p className="text-secondary-content">
+            <span className="text-black">Price</span>: {price}
+          </p>
+        </div>
+        <div className="flex flex-col gap-3">
+          <button className="bg-primary p-2 rounded-xl">
+            <IoEyeSharp color="white" size={20}/>
+          </button>
+          <button className="bg-black p-2 rounded-xl"><MdEdit color="white" size={20} /></button>
+          <button className="bg-red-500 p-2 rounded-xl"><MdDelete color="white" size={20} /></button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Coffee;

@@ -10,6 +10,8 @@ export const router = createBrowserRouter([
     Component: MainLayout,
     children: [
       { index: true,
+        hydrateFallbackElement:<p>Loading...</p>,
+        loader: ()=> fetch('http://localhost:3000/coffees'),
        Component: Home
        },
        {
