@@ -1,6 +1,7 @@
 import React from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { MdDelete, MdEdit } from "react-icons/md";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const Coffee = ({ coffee, coffees, setCoffees }) => {
@@ -60,9 +61,9 @@ const Coffee = ({ coffee, coffees, setCoffees }) => {
           <button className="bg-primary p-2 rounded-xl">
             <IoEyeSharp color="white" size={20} />
           </button>
-          <button className="bg-black p-2 rounded-xl">
+          <Link to={`/edit/${_id}`}><button className="bg-black p-2 rounded-xl">
             <MdEdit color="white" size={20} />
-          </button>
+          </button></Link>
           <button
             onClick={() => handleDelete(_id)}
             className="bg-red-500 p-2 rounded-xl"

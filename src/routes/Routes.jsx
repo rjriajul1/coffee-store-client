@@ -19,7 +19,9 @@ export const router = createBrowserRouter([
         Component:Update
        },
        {
-        path:'edit',
+        path:'/edit/:id',
+         hydrateFallbackElement:<p>Loading...</p>,
+        loader:({params}) => fetch(`http://localhost:3000/coffees/${params.id}`),
         Component: Edit
        }
     ],
