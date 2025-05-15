@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router';
 import Coffee from './Coffee';
 import bgImg from '../assets/more/1.png'
 
-const PopularCoffees = ({coffees}) => {
+const PopularCoffees = ({initailCoffees}) => {
+    const [coffees,setCoffees] = useState(initailCoffees)
    
     return (
         <div style={{backgroundImage:`url(${bgImg})`,}} className='bg-cover'>
@@ -14,7 +15,11 @@ const PopularCoffees = ({coffees}) => {
             </div>
             <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mt-8'>
                 {
-                    coffees.map(coffee=><Coffee key={coffee._id} coffee={coffee}></Coffee>)
+                    coffees.map(coffee=><Coffee 
+                        coffees={coffees} 
+                        setCoffees={setCoffees}
+                        key={coffee._id} 
+                        coffee={coffee}></Coffee>)
                 }
             </div>
         </div>

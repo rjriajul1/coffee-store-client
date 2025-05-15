@@ -7,7 +7,7 @@ const Home = () => {
     const coffees = useLoaderData();
     return (
         <div>
-              <PopularCoffees coffees={coffees}/>
+              <PopularCoffees initailCoffees={coffees}/>
               <FollowInstagram/>
         </div>
     );
