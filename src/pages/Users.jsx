@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Users = () => {
+  // const {removeUser} = use(AuthContext)
   const initialUsers = useLoaderData();
   const [users, setUsers] = useState(initialUsers);
 
@@ -33,6 +35,15 @@ const Users = () => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
+
+            //   // delete user inside firebase
+            //  removeUser()
+            //  .then(result=>{
+            //   console.log(result);
+            //  })
+            //  .catch(error=>{
+            //   console.log(error);
+            //  })
             }
           });
       }

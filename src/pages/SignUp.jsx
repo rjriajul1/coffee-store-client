@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const SignUp = () => {
   const { signUp } = use(AuthContext);
@@ -111,6 +112,7 @@ const SignUp = () => {
           >
             Sign Up
           </button>
+          <p className="text-center text-xl">Already have an account ? Please <Link className="text-blue-500 underline" to='/signIn'>Sign In</Link></p>
         </form>
       </div>
     </div>
