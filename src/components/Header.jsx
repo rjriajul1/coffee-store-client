@@ -12,9 +12,6 @@ const Header = () => {
          <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/update'>Update</NavLink>
         
       </li>
-     
-
-    
     </>
   );
   return (
