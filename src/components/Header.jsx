@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Header = () => {
+//  const userInfo = useContext(AuthContext)
+//  console.log(userInfo);
   const links = (
     <>
       <li>
@@ -11,6 +14,16 @@ const Header = () => {
       <li>
          <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/update'>Update</NavLink>
         
+      </li>
+      <li>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/signUp'>SignUp</NavLink>
+        
+      </li>
+      <li>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/signIn'>SignIn</NavLink>
+      </li>
+      <li>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/users'>Users</NavLink>
       </li>
     </>
   );

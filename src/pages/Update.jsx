@@ -33,7 +33,7 @@ const Update = () => {
   };
   return (
     <div>
-      <div className="lg:px-28 py-16 p-2 bg-base-300 rounded-2xl text-center mt-20">
+      <div className="lg:px-28 py-16 p-2 bg-base-300 rounded-2xl text-center my-20">
         <div className="">
           <h1 className="font-semibold text-xl text-primary-content">
             Add New Coffee

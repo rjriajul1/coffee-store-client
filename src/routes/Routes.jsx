@@ -4,6 +4,9 @@ import Home from "../pages/Home";
 import Update from "../pages/Update";
 import Edit from "../pages/Edit";
 import CoffeeDetails from "../pages/CoffeeDetails";
+import SignUp from "../pages/SignUp";
+import SignIn from "../pages/SignIn";
+import Users from "../pages/Users";
 
 export const router = createBrowserRouter([
   {
@@ -27,8 +30,23 @@ export const router = createBrowserRouter([
        },
        {
         path:'coffeeDetails/:id',
+        hydrateFallbackElement:<p>Loading...</p>,
         loader: ({params}) => fetch(`http://localhost:3000/coffees/${params.id}`),
         Component:CoffeeDetails
+       },
+       {
+        path:'signUp',
+        Component:SignUp
+       },
+       {
+        path: 'signIn',
+        Component: SignIn
+       },
+       {
+        path:'users',
+        hydrateFallbackElement:<p>Loading...</p>,
+        loader: ()=> fetch('http://localhost:3000/users'),
+        Component:Users
        }
     ],
   },
