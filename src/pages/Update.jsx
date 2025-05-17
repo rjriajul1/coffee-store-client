@@ -9,7 +9,7 @@ const Update = () => {
     const coffeeData = Object.fromEntries(formData.entries());
 
     // create new coffee data base
-    fetch("http://localhost:3000/coffees", {
+    fetch("https://coffee-store-server-delta-drab.vercel.app/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",

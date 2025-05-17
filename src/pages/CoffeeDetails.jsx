@@ -4,7 +4,7 @@ import bgImg from '../assets/more/11.png'
 
 const CoffeeDetails = () => {
     const coffee = useLoaderData();
-    console.log(coffee);
+
     const {name, chef, supplier, taste,price, photo,details} = coffee;
   return (
     <div style={{backgroundImage:`url(${bgImg})`}} className="bg-cover">

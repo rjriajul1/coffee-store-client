@@ -35,10 +35,10 @@ const SignUp = () => {
             lastSignInTime:result.user.metadata.lastSignInTime
 
         }
-        console.log(userProfile);
+  
 
         // user info pass to server then to database
-        fetch('http://localhost:3000/users',{
+        fetch('https://coffee-store-server-tau-two.vercel.app/users',{
           
             method: 'POST',
             headers: {

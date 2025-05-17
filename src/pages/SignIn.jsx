@@ -10,7 +10,7 @@ const SignIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(password, email);
+   
 
     // Sign In user
     signIn(email, password)
@@ -30,7 +30,7 @@ const SignIn = () => {
         }
 
         // updata sign in last time database
-        fetch('http://localhost:3000/users', {
+        fetch('https://coffee-store-server-tau-two.vercel.app/users', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
