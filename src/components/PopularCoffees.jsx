@@ -3,8 +3,9 @@ import { Link } from 'react-router';
 import Coffee from './Coffee';
 import bgImg from '../assets/more/1.png'
 
-const PopularCoffees = ({initailCoffees}) => {
-    const [coffees,setCoffees] = useState(initailCoffees)
+const PopularCoffees = ({initialCoffees}) => {
+    const [coffees,setCoffees] = useState(initialCoffees)
+    console.log(initialCoffees);
    
     return (
         <div style={{backgroundImage:`url(${bgImg})`,}} className='bg-cover'>
