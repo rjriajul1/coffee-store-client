@@ -1,10 +1,12 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../contexts/AuthContext";
 import Swal from "sweetalert2";
 
 const SignIn = () => {
   const { signIn } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleSignInForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,6 +24,7 @@ const SignIn = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(location?.state || '/')
         console.log(result);
         const signInInfo = {
             email,

@@ -8,8 +8,10 @@ const MainLayout = () => {
   
 
   return (
-    <div>
-      <Header />
+    <div className="relative">
+      <div className="sticky top-0 z-10">
+        <Header />
+      </div>
       <Banner />
       <div>
         {navigation.state === "loading" ? (

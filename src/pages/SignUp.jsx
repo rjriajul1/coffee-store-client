@@ -1,10 +1,11 @@
 import React, { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import Swal from "sweetalert2";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const SignUp = () => {
   const { signUp } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignUpForm = (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ const SignUp = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate('/')
 
           const userProfile = {
             ...rest,

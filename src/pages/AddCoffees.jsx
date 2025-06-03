@@ -1,7 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 
-const Update = () => {
+const AddCoffees = () => {
   const handleUpdateForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -145,4 +145,4 @@ const Update = () => {
   );
 };
 
-export default Update;
+export default AddCoffees;

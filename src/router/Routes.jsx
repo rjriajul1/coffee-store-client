@@ -1,12 +1,17 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../components/layout/MainLayout";
 import Home from "../pages/Home";
-import Update from "../pages/Update";
+import Update from "../pages/AddCoffees";
 import Edit from "../pages/Edit";
 import CoffeeDetails from "../pages/CoffeeDetails";
 import SignUp from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
 import Users from "../pages/Users";
+import AddCoffees from "../pages/AddCoffees";
+import PrivateRoute from "../routes/PrivateRoute";
+import AllCoffees from "../pages/AllCoffees";
+import MyOrders from "../pages/MyOrders";
+import MyAddedCoffees from "../pages/MyAddedCoffees";
 
 export const router = createBrowserRouter([
   {
@@ -19,9 +24,20 @@ export const router = createBrowserRouter([
        Component: Home
        },
        {
-        path:'update',
-        
-        Component:Update
+        path:'addCoffees',
+        element: <PrivateRoute><AddCoffees></AddCoffees></PrivateRoute>
+       },
+       {
+        path:'allCoffees',
+        element: <PrivateRoute><AllCoffees></AllCoffees></PrivateRoute>
+       },
+       {
+        path:'myOrders',
+        element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
+       },
+       {
+        path:'myAddedCoffees',
+        element: <PrivateRoute><MyAddedCoffees></MyAddedCoffees></PrivateRoute>
        },
        {
         path:'/edit/:id',
@@ -47,7 +63,7 @@ export const router = createBrowserRouter([
         path:'users',
         hydrateFallbackElement:<p>Loading...</p>,
         loader: ()=> fetch('https://coffee-store-server-tau-two.vercel.app/users'),
-        Component:Users
+        element:<PrivateRoute><Users></Users></PrivateRoute>
        }
     ],
   },

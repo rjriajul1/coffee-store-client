@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Header = () => {
-//  const userInfo = useContext(AuthContext)
-//  console.log(userInfo);
+ const {userSignOut, user}= useContext(AuthContext)
+
+ const handleSignOut = () => {
+  userSignOut()
+  .then(result => {
+    console.log(result);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+ }
+
   const links = (
     <>
       <li>
@@ -12,19 +22,37 @@ const Header = () => {
        
       </li>
       <li>
-         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/update'>Update</NavLink>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/addCoffees'>Add Coffee</NavLink>
+        
+      </li>
+      {
+      user && 
+      <>
+      <li>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/allCoffees'>All Coffee's</NavLink>
         
       </li>
       <li>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/myAddedCoffees'>My Added Coffee's</NavLink>
+        
+      </li>
+      <li>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/myOrders'>My orders</NavLink>
+        
+      </li>
+      </>
+      }
+      <li>
+         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/users'>Users</NavLink>
+      </li>
+      {user ? '' : <> <li>
          <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/signUp'>SignUp</NavLink>
         
       </li>
       <li>
          <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/signIn'>SignIn</NavLink>
       </li>
-      <li>
-         <NavLink className={({isActive})=> isActive ? 'text-primary underline' : ''} to='/users'>Users</NavLink>
-      </li>
+      </>}
     </>
   );
   return (
@@ -63,7 +91,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user && <button onClick={handleSignOut} className="btn">Sign Out</button> }
       </div>
     </div>
   );
