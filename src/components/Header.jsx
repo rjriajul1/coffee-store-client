@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../contexts/AuthContext";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
  const {userSignOut, user}= useContext(AuthContext)
@@ -91,6 +92,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        {user? <img className="w-12 h-12 rounded-full mr-2 object-cover" src={user?.photoURL} alt="" /> : <CgProfile size={35} />}
         {user && <button onClick={handleSignOut} className="btn">Sign Out</button> }
       </div>
     </div>

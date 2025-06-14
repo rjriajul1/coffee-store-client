@@ -4,15 +4,14 @@ import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router";
 
 const SignUp = () => {
-  const { signUp } = use(AuthContext);
+  const { signUp, userProfileUpdate } = use(AuthContext);
   const navigate = useNavigate();
 
   const handleSignUpForm = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const {email,password,...rest} = Object.fromEntries(formData.entries());
-  
+    const { email, password, ...rest } = Object.fromEntries(formData.entries());
 
     // const email = formData.get("email");
     // const password = formData.get("password");
@@ -20,41 +19,47 @@ const SignUp = () => {
     // user create inside firebase
     signUp(email, password)
       .then((result) => {
-        console.log(result.user);
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Your are create a account successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate('/')
+        const updateProfile = {
+          displayName: rest?.name,
+          photoURL: rest?.photo,
+        };
+        userProfileUpdate(updateProfile)
+          .then((res) => {
+            console.log(res);
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Your are create a account successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/");
+          })
+          .then((error) => {
+            console.log(error);
+          });
 
-          const userProfile = {
-            ...rest,
-            email,
-            creationTime:result.user.metadata.creationTime,
-            lastSignInTime:result.user.metadata.lastSignInTime
-
-        }
-  
+        const userProfile = {
+          ...rest,
+          email,
+          creationTime: result.user.metadata.creationTime,
+          lastSignInTime: result.user.metadata.lastSignInTime,
+        };
 
         // user info pass to server then to database
-        fetch('https://coffee-store-server-tau-two.vercel.app/users',{
-          
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(userProfile)
+        fetch("https://coffee-store-server-tau-two.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userProfile),
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.insertedId){
-                console.log('after post', data);
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              console.log("after post", data);
             }
-        })
-
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -114,7 +119,12 @@ const SignUp = () => {
           >
             Sign Up
           </button>
-          <p className="text-center text-xl">Already have an account ? Please <Link className="text-blue-500 underline" to='/signIn'>Sign In</Link></p>
+          <p className="text-center text-xl">
+            Already have an account ? Please{" "}
+            <Link className="text-blue-500 underline" to="/signIn">
+              Sign In
+            </Link>
+          </p>
         </form>
       </div>
     </div>
