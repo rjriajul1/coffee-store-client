@@ -29,7 +29,9 @@ export const router = createBrowserRouter([
        },
        {
         path:'allCoffees',
-        element: <PrivateRoute><AllCoffees></AllCoffees></PrivateRoute>
+        hydrateFallbackElement:<p>loading....</p>,
+        loader: ()=> fetch('http://localhost:3000/coffees'),
+        element:<PrivateRoute><AllCoffees></AllCoffees></PrivateRoute>
        },
        {
         path:'myOrders',

@@ -6,7 +6,7 @@ import bgImg from "../assets/more/1.png";
 const PopularCoffees = ({ initialCoffees }) => {
 
   const [coffees, setCoffees] = useState(initialCoffees);
-  console.log(coffees);
+ 
   return (
     <div style={{ backgroundImage: `url(${bgImg})` }} className="bg-cover">
       <div className="text-center mt-8 space-y-2">
