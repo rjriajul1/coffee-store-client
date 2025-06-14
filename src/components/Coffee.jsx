@@ -4,42 +4,9 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const Coffee = ({ coffee, coffees, setCoffees }) => {
+const Coffee = ({ coffee}) => {
   const { name, price, chef, photo, _id } = coffee || {};
-  const handleDelete = (id) => {
-   
-  Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-    
-    fetch(`http://localhost:3000/coffees/${id}`,{
-      method: 'DELETE'
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.deletedCount){
-        const remainingCoffee = coffees.filter(coffee=> coffee._id !== id);
-        setCoffees(remainingCoffee)
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your coffee has been deleted.",
-          icon: "success"
-        });
-      }
-    })
-
-
-  }
-});
-      
-  };
+  
   return (
     <div className="card  card-side bg-base-300 shadow-sm">
       <figure>
@@ -58,18 +25,12 @@ const Coffee = ({ coffee, coffees, setCoffees }) => {
           </p>
         </div>
         <div className="flex flex-col gap-3">
-         <Link to={`/coffeeDetails/${_id}`}> <button className="bg-primary p-2 rounded-xl">
-            <IoEyeSharp color="white" size={20} />
-          </button></Link>
-          <Link to={`/edit/${_id}`}><button className="bg-black p-2 rounded-xl">
-            <MdEdit color="white" size={20} />
-          </button></Link>
-          <button
-            onClick={() => handleDelete(_id)}
-            className="bg-red-500 p-2 rounded-xl"
-          >
-            <MdDelete color="white" size={20} />
-          </button>
+          <Link to={`/coffeeDetails/${_id}`}>
+            {" "}
+            <button className="bg-primary p-2 rounded-xl">
+              <IoEyeSharp color="white" size={20} />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

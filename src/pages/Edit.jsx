@@ -6,7 +6,6 @@ const Edit = () => {
   const coffee = useLoaderData();
   const navigate = useNavigate();
 
-
   const handleEditForm = (e) => {
     e.preventDefault();
 
@@ -15,7 +14,7 @@ const Edit = () => {
     const updateCoffee = Object.fromEntries(formData.entries());
     console.log(updateCoffee);
 
-    fetch(`https://coffee-store-server-tau-two.vercel.app/coffees/${coffee._id}`, {
+    fetch(`http://localhost:3000/coffees/${coffee._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

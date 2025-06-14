@@ -20,6 +20,10 @@ const CoffeeDetails = () => {
              <p className="text-secondary-content"><span className="text-black">Taste</span>: {taste}</p> 
              <p className="text-secondary-content"><span className="text-black">Price</span>: {price}</p>
              <p className="text-secondary-content"><span className="text-black">Details</span>: {details}</p>
+             <div className="flex gap-6">
+              <button className="btn btn-primary text-xl">Like</button>
+              <button className="btn btn-accent text-gray-900 text-xl">order</button>
+             </div>
          </div>
       </div>
     </div>

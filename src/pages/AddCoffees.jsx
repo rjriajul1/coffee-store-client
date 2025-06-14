@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../contexts/AuthContext";
+
 
 const AddCoffees = () => {
+  const {user} = useContext(AuthContext);
   const handleUpdateForm = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const coffeeData = Object.fromEntries(formData.entries());
+    coffeeData.email = user?.email;
+    coffeeData.likeBy = [];
 
     // create new coffee data base
-    fetch("https://coffee-store-server-delta-drab.vercel.app/coffees", {
+    fetch("http://localhost:3000/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -134,7 +139,7 @@ const AddCoffees = () => {
               />
             </fieldset>
             <input
-              className="bg-primary w-full p-2 border rounded-2xl text-xl mt-6"
+              className="bg-primary w-full cursor-pointer p-2 border rounded-2xl text-xl mt-6"
               type="submit"
               value="Add Coffee"
             />

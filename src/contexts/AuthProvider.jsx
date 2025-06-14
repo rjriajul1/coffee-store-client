@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
 
   const [loading,setLoading] = useState(true);
   const [user,setUser] = useState(null)
-  console.log(user);
+
     // Create user 
    const signUp = (email, password) => {
     setLoading(true)

@@ -5,7 +5,6 @@ import FollowInstagram from '../components/FollowInstagram';
 
 const Home = () => {
     const coffees = useLoaderData();
-   
     return (
         <div>
               <PopularCoffees initialCoffees={coffees}/>
