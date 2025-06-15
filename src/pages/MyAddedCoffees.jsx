@@ -11,7 +11,7 @@ const MyAddedCoffees = () => {
   const { user } = useContext(AuthContext);
   const [foods,setFoods] = useState([])
   const { isPending, error, data } = useQuery({
-    queryKey: ["foodData"],
+    queryKey: ["foodData",user?.email],
     queryFn: () =>
       fetch(`http://localhost:3000/coffeesByEmail?email=${user?.email}`).then(
         (res) => res.json()

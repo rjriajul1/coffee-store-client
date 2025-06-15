@@ -12,7 +12,6 @@ const Edit = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updateCoffee = Object.fromEntries(formData.entries());
-    console.log(updateCoffee);
 
     fetch(`http://localhost:3000/coffees/${coffee._id}`, {
       method: "PUT",
