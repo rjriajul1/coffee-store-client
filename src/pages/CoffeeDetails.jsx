@@ -5,7 +5,7 @@ import bgImg from '../assets/more/11.png'
 const CoffeeDetails = () => {
     const coffee = useLoaderData();
 
-    const {name, chef, supplier, taste,price, photo,details} = coffee;
+    const {name, chef, supplier, taste,price, photo,details,likeBy} = coffee;
   return (
     <div style={{backgroundImage:`url(${bgImg})`}} className="bg-cover">
       <div className="flex justify-evenly items-center bg-base-300 max-w-7xl mx-auto my-20 rounded-2xl p-6">
@@ -20,6 +20,7 @@ const CoffeeDetails = () => {
              <p className="text-secondary-content"><span className="text-black">Taste</span>: {taste}</p> 
              <p className="text-secondary-content"><span className="text-black">Price</span>: {price}</p>
              <p className="text-secondary-content"><span className="text-black">Details</span>: {details}</p>
+             <p>like: {likeBy.length}</p>
              <div className="flex gap-6">
               <button className="btn btn-primary text-xl">Like</button>
               <button className="btn btn-accent text-gray-900 text-xl">order</button>
