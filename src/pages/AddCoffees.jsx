@@ -71,8 +71,8 @@ const AddCoffees = () => {
                 Chef
               </label>
               <input
-                type="text"
-                name="chef"
+                type="number"
+                name="quantity"
                 className="input w-full"
                 placeholder="Coffee Chef"
               />

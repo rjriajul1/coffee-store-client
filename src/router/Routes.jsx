@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
         path:'coffeeDetails/:id',
         hydrateFallbackElement:<p>Loading...</p>,
         loader: ({params}) => fetch(`http://localhost:3000/coffees/${params.id}`),
-        Component:CoffeeDetails
+        element:<PrivateRoute><CoffeeDetails></CoffeeDetails></PrivateRoute>
        },
        {
         path:'signUp',
