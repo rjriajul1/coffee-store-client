@@ -5,6 +5,7 @@ import { auth } from "../firebase/firebase.config";
 
 
 
+
 const AuthProvider = ({ children }) => {
 
   const [loading,setLoading] = useState(true);
@@ -31,6 +32,7 @@ const AuthProvider = ({ children }) => {
   // sign out 
   const userSignOut = () => {
     setLoading(true)
+    // localStorage.removeItem('token')
     return signOut(auth)
   }
 
@@ -39,6 +41,17 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currenUser) => {
       setUser(currenUser)
       setLoading(false)
+      // if(currenUser?.email){
+      //   axios.post("http://localhost:3000/jwt", {email:currenUser?.email})
+      //   .then(res=>{
+      //     localStorage.setItem('token',res.data)
+      //   }).catch(error=> {
+      //     console.log(error.message);
+      //   })
+        
+      // }else{
+      //   localStorage.removeItem('token')
+      // }
     })
     return ()=> {
       unSubscribe()
@@ -52,7 +65,8 @@ const AuthProvider = ({ children }) => {
        userSignOut,
        user,
        loading,
-       userProfileUpdate
+       userProfileUpdate,
+       setUser
      
     }
   return <AuthContext.Provider value={userInfo}>

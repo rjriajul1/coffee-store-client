@@ -1,21 +1,24 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { IoEyeSharp } from 'react-icons/io5';
 import { Link } from 'react-router';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const MyOrders = () => {
     const [orders,setOrders]= useState([])
     const {user} = use(AuthContext)
+    const axiosSecure = useAxiosSecure()
     useEffect(()=>{
-        axios(`http://localhost:3000/my-orders/${user?.email}`)
-        .then(res=>{
-            setOrders(res?.data)
+        axiosSecure(`/my-orders/${user?.email}`)
+        .then(data=>{
+          // console.log(res);
+            setOrders(data)
         })
         .catch(error=> {
             console.log(error);
         })
-    },[user])
+    },[user,axiosSecure])
     
     return (
         <div>

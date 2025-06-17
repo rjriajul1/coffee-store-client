@@ -9,11 +9,17 @@ import Swal from "sweetalert2";
 
 const MyAddedCoffees = () => {
   const { user } = useContext(AuthContext);
+  // const token = localStorage.getItem('token')
+ 
   const [foods,setFoods] = useState([])
   const { isPending, error, data } = useQuery({
     queryKey: ["foodData",user?.email],
     queryFn: () =>
-      fetch(`http://localhost:3000/coffeesByEmail?email=${user?.email}`).then(
+      fetch(`http://localhost:3000/coffeesByEmail?email=${user?.email}`,{
+        headers: {
+          authorization: `Bearer ${user?.accessToken}`
+        }
+      }).then(
         (res) => res.json()
       ),
   });
