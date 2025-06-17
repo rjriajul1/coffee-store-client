@@ -34,7 +34,7 @@ const CoffeeDetails = () => {
     if (user.email === email) return alert("Do not like your coffee");
     // handle like api
     axios
-      .patch(`http://localhost:3000/like/${_id}`, { email: user?.email })
+      .patch(`https://coffee-store-server-tau-two.vercel.app/like/${_id}`, { email: user?.email })
       .then((res) => {
         const isLiked = res.data?.liked;
         setLiked(isLiked);
@@ -52,7 +52,7 @@ const CoffeeDetails = () => {
       orderId: _id,
     };
     axios
-      .post(`http://localhost:3000/order-place/${_id}`, orderData)
+      .post(`https://coffee-store-server-tau-two.vercel.app/order-place/${_id}`, orderData)
       .then((res) => {
         if (res.data.insertedId) {
           setCoffee(prev=>{

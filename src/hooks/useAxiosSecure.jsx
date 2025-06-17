@@ -3,7 +3,7 @@ import { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 let isInterceptor = false;
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://coffee-store-server-tau-two.vercel.app",
 });
 
 const useAxiosSecure = () => {

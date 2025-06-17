@@ -15,7 +15,7 @@ const MyAddedCoffees = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["foodData",user?.email],
     queryFn: () =>
-      fetch(`http://localhost:3000/coffeesByEmail?email=${user?.email}`,{
+      fetch(`https://coffee-store-server-tau-two.vercel.app/coffeesByEmail?email=${user?.email}`,{
         headers: {
           authorization: `Bearer ${user?.accessToken}`
         }
@@ -42,7 +42,7 @@ const MyAddedCoffees = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/coffees/${id}`)
+          .delete(`https://coffee-store-server-tau-two.vercel.app/coffees/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               const remainingFoods = data.filter(food=> food._id !== id);

@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
       setUser(currenUser)
       setLoading(false)
       // if(currenUser?.email){
-      //   axios.post("http://localhost:3000/jwt", {email:currenUser?.email})
+      //   axios.post("https://coffee-store-server-tau-two.vercel.app/jwt", {email:currenUser?.email})
       //   .then(res=>{
       //     localStorage.setItem('token',res.data)
       //   }).catch(error=> {
