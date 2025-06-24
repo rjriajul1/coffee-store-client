@@ -30,8 +30,8 @@ A fully functional Coffee Store web application where users can order their favo
 
 ## How to run locally
 
-# npm install
-# npm run dev
+### npm install
+### npm run dev
 
 git clone https://github.com/rjriajul1/coffee-store.git
 cd coffee-store
