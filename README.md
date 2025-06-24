@@ -1,12 +1,37 @@
-# React + Vite
+# ☕ Coffee Store Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 [Live Website](https://coffee-store-auth-13832.web.app/)
 
-Currently, two official plugins are available:
+## 📝 Overview
+A fully functional Coffee Store web application where users can order their favorite coffee, like them, and manage coffee items (add, update, delete). Built with React and Firebase.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
+- React (v19)
+- React Router (v7)
+- Tailwind CSS (v4)
+- DaisyUI (v5)
+- Firebase (Auth & Hosting)
+- Axios
+- React Query (TanStack)
+- React Toastify
+- SweetAlert2
 
-## Expanding the ESLint configuration
+## 🎯 Main Features
+- 🔐 User authentication with Firebase
+- ☕ View all coffee in card layout
+- ➕ Add new coffee item
+- 🔁 Update existing coffee
+- ❌ Delete coffee with confirmation
+- ❤️ Like coffee (favorites)
+- 🛒 Order coffee
+- 🔍 Clean and responsive UI with Tailwind CSS and DaisyUI
+- 🔄 Optimized data fetching with React Query
+- 🔔 Toast notifications and sweet alerts for user actions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to run locally
+
+git clone https://github.com/rjriajul1/coffee-store.git
+cd coffee-store
+npm install
+npm run dev
+
